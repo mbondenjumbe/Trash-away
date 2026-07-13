@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trashaway - Fast, eco-friendly, and affordable residential and commercial junk removal services.">
+    <title>Trashaway | Eco-Friendly Junk Removal & Disposal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #16a34a; /* LoveJunk inspired Green */
+            --primary-hover: #15803d;
+            --secondary: #1e293b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text: #475569;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5rem 5%;
+            background-color: var(--white);
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badges {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .stars { color: #fbbf24; }
+
+        .hero-image {
+            max-width: 45%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Services (Mapped from PDF) */
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .service-card h3 {
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        /* Quote Request System (From PDF Requirements) */
+        .quote-section {
+            padding: 5rem 5%;
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            color: var(--text);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .quote-container h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+            .hero-content, .hero-image {
+                max-width: 100%;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Add JS hamburger for full prod */
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width, .submit-btn {
+                grid-column: span 1;
+            }
+            .quote-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-trash-can-arrow-up"></i> Trashaway
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+        </ul>
+        <a href="#quote" class="btn">Request a Quote</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Cheapest & greenest way to clear your junk.</h1>
+            <p>Find licensed waste collectors in seconds. Whether it's household rubbish, builder's waste, or a full office clearance, Trashaway guarantees fast, eco-friendly disposal.</p>
+            <a href="#quote" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Get a Free Quote Now</a>
+            
+            <div class="trust-badges">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span>Rated 4.9/5 by 10,000+ Happy Customers</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Placeholder for junk removal hero image -->
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Junk Removal Team">
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <h2 class="section-title">How Trashaway Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <i class="fa-solid fa-camera step-icon"></i>
+                <h3>1. Tell us what to clear</h3>
+                <p>Fill out our quick quote form or snap a photo of your junk. Include location and desired pickup date.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-tags step-icon"></i>
+                <h3>2. Get instant quotes</h3>
+                <p>Receive competitive, fixed-price quotes from our network of licensed and insured waste carriers.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-truck-fast step-icon"></i>
+                <h3>3. We clear & recycle</h3>
+                <p>Our team arrives on time, does all the heavy lifting, and ensures your waste is recycled responsibly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Adapted from PDF Moving Services) -->
+    <section class="services" id="services">
+        <h2 class="section-title" style="text-align: center;">Our Disposal Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-house-chimney step-icon"></i>
+                <h3>Residential Junk Removal</h3>
+                <p>Clearing out the garage, basement, or attic? We safely remove old furniture, appliances, and general household clutter.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-building step-icon"></i>
+                <h3>Apartment & Condo Clearance</h3>
+                <p>Specialized service for multi-level buildings. We handle the stairs, elevators, and tight spaces so you don't have to.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-briefcase step-icon"></i>
+                <h3>Commercial & Office Waste</h3>
+                <p>From office furniture and e-waste to retail store cleanouts. Fast, unobtrusive service for businesses.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-hammer step-icon"></i>
+                <h3>Builder's & Construction Waste</h3>
+                <p>Post-renovation cleanup. We haul away rubble, timber, drywall, and other heavy construction materials.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-leaf step-icon"></i>
+                <h3>Yard Waste & Storage</h3>
+                <p>Clearing branches, fencing, and landscaping debris. We also offer full storage unit cleanouts.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-recycle step-icon"></i>
+                <h3>Recycling & Donation</h3>
+                <p>We sort your junk! Up to 80% of what we collect is diverted from landfills through recycling and local donations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Request System (Directly from PDF Requirements) -->
+    <section class="quote-section" id="quote">
+        <div class="quote-container">
+            <h2>Request a Quote</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Fill out the details below and we'll send a price directly to your email.</p>
+            
+            <form id="quoteForm" onsubmit="submitForm(event)">
+                <div class="form-grid">
+                    <!-- Contact Info -->
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    
+                    <!-- Property/Address details from PDF -->
+                    <div class="form-group">
+                        <label for="address">Pickup Address</label>
+                        <input type="text" id="address" required placeholder="123 Main St, City, Zip">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="property">Property Type</label>
+                        <select id="property">
+                            <option>House</option>
+                            <option>Apartment (with elevator)</option>
+                            <option>Apartment (stairs only)</option>
+                            <option>Commercial Office</option>
+                            <option>Storage Unit</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="volume">Estimated Volume (or Rooms)</label>
+                        <select id="volume">
+                            <option>A few single items</option>
+                            <option>1/4 Truck Load (1 Room)</option>
+                            <option>1/2 Truck Load (2-3 Rooms)</option>
+                            <option>Full Truck Load (Whole House)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Collection Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <!-- Additional Services -->
+                    <div class="form-group full-width">
+                        <label for="details">Additional Services / Describe the Junk</label>
+                        <textarea id="details" rows="3" placeholder="E.g., 1 old sofa, 2 bags of garden waste, and a broken fridge. Need it gone ASAP!"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn">Submit Quote Request</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="font-size: 1.5rem; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-trash-can-arrow-up"></i> Trashaway
+                </div>
+                <p style="font-size: 0.9rem;">Your local, eco-friendly solution for junk disposal, waste clearance, and recycling.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Service Areas</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Residential Junk</a></li>
+                    <li><a href="#services">Apartment Clearance</a></li>
+                    <li><a href="#services">Commercial Waste</a></li>
+                    <li><a href="#services">Packing & Sorting</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect With Us</h4>
+                <ul style="display: flex; gap: 15px; font-size: 1.5rem;">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Trashaway. Designed & Optimized securely with SSL by ITCloudConsultings.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Quote System -->
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            // Grabbing a few variables for a personalized message
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Simulating the PDF requirement: "Quote requests will be sent directly to the company's email."
+            alert(`Thank you, ${name}! Your junk removal request has been securely submitted. We will send your free quote directly to ${email} shortly.`);
+            document.getElementById('quoteForm').reset();
+        }
+    </script>
+</body>
+</html>
